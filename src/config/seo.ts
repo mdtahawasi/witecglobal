@@ -1,4 +1,4 @@
-export const SEO_SITE = "https://witecglobal.lovable.app";
+export const SEO_SITE = "https://witecglobal.com";
 type PageMeta = { title: string; description: string; label: string };
 export const PAGE_SEO: Record<"bim" | "construction", Record<string, PageMeta>> = {
   bim: {

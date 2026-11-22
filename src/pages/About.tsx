@@ -34,7 +34,7 @@ const bimTimeline = [
 ];
 
 const leadershipTeam = [
-  { name: "Md Taha Wasi", role: "Founder & CEO", qualifications: "Masters in Construction & Project Management | MBA", initials: "TW", email: "taha@witecglobal.com", phone: "" },
+  { name: "Md Taha Wasi", role: "Founder & BIM Director", qualifications: "Masters in Construction & Project Management | MBA", initials: "TW", email: "taha@witecglobal.com", phone: "+971 56 932 7490" },
 ];
 
 export default function AboutPage() {

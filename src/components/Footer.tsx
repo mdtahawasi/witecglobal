@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import logo from "@/assets/logo-optimized.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useDivision } from "@/contexts/DivisionContext";
@@ -103,6 +103,7 @@ export default function Footer() {
               <div className="flex items-center gap-2 text-muted-foreground"><MapPin size={14} /> Sadar, Nagpur, Maharashtra, India (HQ) · UAE</div>
                <a href="mailto:info@witecglobal.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary"><Mail size={14} /> info@witecglobal.com</a>
                <a href="mailto:taha@witecglobal.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary"><Mail size={14} /> taha@witecglobal.com</a>
+               <a href={COMPANY.phoneHref} className="flex items-center gap-2 text-muted-foreground hover:text-primary"><Phone size={14} /> {COMPANY.phone}</a>
             </div>}
             {isConstruction && <div className="space-y-1.5">
               <div className="text-[10px] text-primary font-bold uppercase tracking-widest flex items-center gap-1.5">
@@ -111,6 +112,7 @@ export default function Footer() {
               <div className="flex items-center gap-2 text-muted-foreground"><MapPin size={14} /> Sadar, Nagpur, Maharashtra, India (HQ) · UAE</div>
                <a href="mailto:taha@witecglobal.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary"><Mail size={14} /> taha@witecglobal.com</a>
                <a href="mailto:info@witecglobal.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary"><Mail size={14} /> info@witecglobal.com</a>
+               <a href={COMPANY.phoneHref} className="flex items-center gap-2 text-muted-foreground hover:text-primary"><Phone size={14} /> {COMPANY.phone}</a>
             </div>}
           </div>
           <p className="text-xs text-muted-foreground">
