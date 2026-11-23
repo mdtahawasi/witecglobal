@@ -46,7 +46,7 @@ export default function AboutPage() {
     ? constructionAboutStory.stats
     : [
         { value: 2019, suffix: "", labelKey: "stat.founded" },
-        { value: 30, suffix: "+", labelKey: "stat.projectsDelivered" },
+        { value: 50, suffix: "+", labelKey: "stat.projectsDelivered" },
         { value: 3, suffix: "", labelKey: "stat.industrySectors" },
         { value: 2, suffix: "", labelKey: "stat.countries" },
       ];

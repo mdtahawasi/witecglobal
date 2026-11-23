@@ -39,7 +39,7 @@ const coreValues = [
 
 const whyJoinUs = [
   { number: "2–10", label: "Team Members", desc: "Engineers, architects, and technologists across 12 countries" },
-  { number: "500+", label: "Projects Delivered", desc: "Across commercial, residential, healthcare, and infrastructure" },
+  { number: "50+", label: "Projects Delivered", desc: "Across commercial, residential, healthcare, and infrastructure" },
   { number: "98%", label: "Employee Retention", desc: "Our team stays because they love what they do" },
   { number: "4.8/5", label: "Glassdoor Rating", desc: "Rated as a top workplace in the AEC-tech industry" },
 ];

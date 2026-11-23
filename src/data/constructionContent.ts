@@ -363,7 +363,7 @@ export const constructionRegistrations = [
 
 // ============ HERO — CONSTRUCTION KPIs & TRUST STATS ============
 export const constructionHeroKpis = [
-  { value: 50,  suffix: "+",     label: "Projects" },
+  { value: 30,  suffix: "+",     label: "Projects" },
   { value: 2019, suffix: "", label: "Founded" },
   { value: 10, suffix: "", prefix: "2–", label: "Team" },
   { value: 100, suffix: "Cr+ ₹", label: "Project Value" },
@@ -393,7 +393,7 @@ export const constructionAboutStory = {
   ],
   stats: [
     { value: 2019, suffix: "", labelKey: "stat.founded" },
-    { value: 50,  suffix: "+",   labelKey: "stat.projectsDelivered" },
+    { value: 30,  suffix: "+",   labelKey: "stat.projectsDelivered" },
     { value: 10, suffix: "", prefix: "2–", labelKey: "stat.teamSize" },
     { value: 100, suffix: "Cr+", labelKey: "stat.countries" },
   ],
@@ -423,7 +423,7 @@ export const constructionCareers = {
   ],
   stats: [
     { number: "2–10", label: "Team On-Site",     desc: "Engineers, architects, safety officers and skilled trades — all in-house" },
-    { number: "50+",  label: "Projects Delivered", desc: "Residential, commercial, industrial and infrastructure" },
+    { number: "30+",  label: "Projects Delivered", desc: "Residential, commercial, industrial and infrastructure" },
     { number: "0",    label: "Fatal Incidents",  desc: "7 years of zero-harm safety record across all sites" },
     { number: "95%",  label: "Team Retention",   desc: "Because we invest in people, not just projects" },
   ],
