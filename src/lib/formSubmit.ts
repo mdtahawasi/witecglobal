@@ -1,3 +1,4 @@
+// Website form submissions -> n8n webhook -> email to info@witecglobal.com
 export const WEBSITE_FORM_WEBHOOK =
   "https://n8n.srv1535368.hstgr.cloud/webhook/witec/website-form-5f8k2q";
 
