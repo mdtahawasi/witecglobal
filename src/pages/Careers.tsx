@@ -20,6 +20,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
+import { submitWebsiteForm, fileToBase64 } from "@/lib/formSubmit";
 
 const perkKeys = [
   { icon: Briefcase, title: "Flexible Work", desc: "Remote-first culture with flexible hours. Work from anywhere across 12+ countries with our distributed team." },
@@ -113,14 +114,46 @@ export default function CareersPage() {
     }, 100);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.fullName || !formData.email || !formData.phone) {
       toast({ title: "Please fill all required fields", variant: "destructive" });
       return;
     }
-    setSubmitted(true);
-    toast({ title: "Application Submitted!", description: `Thank you for applying for ${applyingFor}. We'll review and get back within 5 business days.` });
+    if (resumeFile && resumeFile.size > 5 * 1024 * 1024) {
+      toast({ title: "File too large", description: "Maximum file size is 5MB.", variant: "destructive" });
+      return;
+    }
+    const position = applyingFor ?? "General Application";
+    const payload: Record<string, unknown> = {
+      formType: "careers",
+      division,
+      position,
+      fullName: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+      currentRole: formData.currentRole,
+      experience: formData.experience,
+      linkedIn: formData.linkedIn,
+      portfolio: formData.portfolio,
+      expectedSalary: formData.expectedSalary,
+      noticePeriod: formData.noticePeriod,
+      coverLetter: formData.coverLetter,
+      skills: formData.skills,
+      education: formData.education,
+      referral: formData.referral,
+    };
+    if (resumeFile) {
+      payload.resumeFilename = resumeFile.name;
+      payload.resumeBase64 = await fileToBase64(resumeFile);
+    }
+    const ok = await submitWebsiteForm(payload);
+    if (ok) {
+      setSubmitted(true);
+      toast({ title: "Application Submitted!", description: `Thank you for applying for ${position}. We'll review and get back within 5 business days.` });
+    } else {
+      toast({ title: "Submission failed", description: "Please email your application directly to info@witecglobal.com.", variant: "destructive" });
+    }
   };
 
   return (

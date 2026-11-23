@@ -10,6 +10,7 @@ import { useDivision } from "@/contexts/DivisionContext";
 import { constructionRegistrations } from "@/data/constructionContent";
 import { fadeUp, fadeLeft, fadeRight, scaleIn, staggerContainer, staggerItem, staggerItemScale } from "@/lib/animations";
 import { toast } from "sonner";
+import { submitWebsiteForm } from "@/lib/formSubmit";
 import heroConstruction from "@/assets/hero-construction-site.jpg";
 
 export default function ContactPage() {
@@ -38,10 +39,24 @@ export default function ContactPage() {
     // set default subject once on render
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success(t("contact.thankYou"));
-    setFormData({ name: "", email: "", phone: "", company: "", subject: "", message: "" });
+    const ok = await submitWebsiteForm({
+      formType: "contact",
+      division,
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      company: formData.company,
+      subject: formData.subject,
+      message: formData.message,
+    });
+    if (ok) {
+      toast.success(t("contact.thankYou"));
+      setFormData({ name: "", email: "", phone: "", company: "", subject: "", message: "" });
+    } else {
+      toast.error("Something went wrong. Please email us directly at info@witecglobal.com.");
+    }
   };
 
   return (

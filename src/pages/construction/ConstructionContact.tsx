@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import Layout from "@/components/Layout";
 import DivisionSEO from "@/components/DivisionSEO";
+import { toast } from "sonner";
+import { submitWebsiteForm } from "@/lib/formSubmit";
 import AnimatedSection from "@/components/AnimatedSection";
 import {
   wcProjectsBg, wcContact, wcContactServices, wcContactCards, wcRegistrations,
@@ -12,14 +14,23 @@ import {
 export default function ConstructionContact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", service: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`New Inquiry: ${form.service || "General"}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nService: ${form.service}\n\nMessage:\n${form.message}`
-    );
-    window.location.href = `mailto:${wcContact.email}?subject=${subject}&body=${body}`;
-    setForm({ name: "", email: "", phone: "", service: "", message: "" });
+    const ok = await submitWebsiteForm({
+      formType: "contact",
+      division: "construction",
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      service: form.service,
+      message: form.message,
+    });
+    if (ok) {
+      toast.success("Thank you! Your message has been sent. We'll get back to you shortly.");
+      setForm({ name: "", email: "", phone: "", service: "", message: "" });
+    } else {
+      toast.error("Something went wrong. Please email us directly at info@witecglobal.com.");
+    }
   };
 
   const field = "w-full bg-secondary/50 border border-border/60 rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/60 transition-colors";
