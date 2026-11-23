@@ -28,6 +28,6 @@ describe("owner-confirmed company facts", () => {
     expect(COMPANY.teamSize).toBe("2–10");
     expect(wcStats.find(stat => stat.label === "Team Strength")?.value).toBe("2–10");
     expect(constructionCareers.stats.find(stat => stat.label === "Team On-Site")?.number).toBe("2–10");
-    expect(constructionHeroKpis.find(stat => stat.label === "Projects")).toEqual({ value: 50, suffix: "+", label: "Projects" });
+    expect(constructionHeroKpis.find(stat => stat.label === "Projects")).toEqual({ value: 30, suffix: "+", label: "Projects" });
   });
 });

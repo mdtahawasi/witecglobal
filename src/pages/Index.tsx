@@ -83,7 +83,7 @@ const bimServiceKeys = [
 ];
 
 const bimStats = [
-  { value: 150, suffix: "+", label: "BIM Projects" },
+  { value: 50, suffix: "+", label: "BIM Projects" },
   { value: 5,   suffix: "+", label: "Countries" },
   { value: 10, suffix: "", prefix: "2–", label: "BIM Experts" },
   { value: 2019, suffix: "", label: "Founded" },
